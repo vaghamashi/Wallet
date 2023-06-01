@@ -9,10 +9,13 @@ import com.example.wallet.Modal.TransactionModal
 class DBhelper(
     context: Context?
 ) : SQLiteOpenHelper(context, "Expense.db", null, 1) {
+
+    var TABLE_NAME = "trans"
+
     override fun onCreate(db: SQLiteDatabase?) {
 
         var sql =
-            "CREATE TABLE trans(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, amt INTEGER ,category TEXT , note TEXT ,isexpense INTEGER)"
+            "CREATE TABLE $TABLE_NAME(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, amt INTEGER ,category TEXT , note TEXT ,time TEXT,isexpense INTEGER)"
         db?.execSQL(sql)
 
     }
@@ -31,9 +34,10 @@ class DBhelper(
             trans.apply {
 
                 put("name", name)
-                put("amt",amt)
+                put("amt", amt)
                 put("category", category)
                 put("note", note)
+                put("time", time)
                 put("isexpense", isExpense)
             }
         }
@@ -54,8 +58,10 @@ class DBhelper(
             var amt = cursor.getInt(2)
             var category = cursor.getString(3)
             var note = cursor.getString(4)
-            var isExpense = cursor.getInt(5)
-            var data = TransactionModal(id, name, amt, category, note, isExpense)
+            var time = cursor.getString(5)
+            var isExpense = cursor.getInt(6)
+            var data = TransactionModal(id,name,amt,category,note,isExpense,time)
+        //    var data = TransactionModal(id, name, amt, category, note,time, isExpense)
             transList.add(data)
             cursor.moveToNext()
         }
@@ -66,6 +72,7 @@ class DBhelper(
 
     fun deleteTransaction(id: Int) {
         var db = writableDatabase
+
 
 
         //sqlqurey
@@ -80,13 +87,14 @@ class DBhelper(
         var db = writableDatabase
         var values = ContentValues().apply {
             trans.apply {
-                put("name",name)
+                put("name", name)
                 put("amt", amt)
                 put("category", category)
                 put("note", note)
+                put("time", time)
                 put("isexpense", isExpense)
             }
         }
-        db.update("trans", values, "id=${trans.id}", null)
+        db.update(TABLE_NAME, values, "id=${trans.id}", null)
     }
 }

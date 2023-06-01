@@ -50,11 +50,16 @@ class TransAdapter(detele: (Int) -> Unit, update: (TransactionModal) -> Unit) :
             txtAmt.text = transaction.get(position).amt.toString()
             txtCategory.text = transaction.get(position).category
             txtNote.text = transaction.get(position).note
+            date.text = transaction.get(position).time
 
             if (transaction.get(position).isExpense == 0) {
+                isincome.setText("Is Icome")
+                isincome.setTextColor(Color.GREEN)
                 txtAmt.setTextColor(Color.GREEN)
             } else {
                 txtAmt.setTextColor(Color.RED)
+                isincome.setText("Is expense")
+                isincome.setTextColor(Color.RED)
             }
         }
         holder.itemView.setOnLongClickListener(object : OnLongClickListener {

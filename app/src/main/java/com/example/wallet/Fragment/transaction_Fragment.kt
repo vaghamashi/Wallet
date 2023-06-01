@@ -49,7 +49,7 @@ class transaction_Fragment : Fragment() {
                         var category2 = editCart.text.toString()
                         var note2 = editNote.text.toString()
 
-                        var modal = TransactionModal(id, name2, amt2, category2, note2, isExpense)
+                        var modal = TransactionModal(id, name2, amt2, category2, note2, isExpense,time)
 
                         dbHelper.updateTransaction(modal)
                         adapter.update(dbHelper.getTransaction())
@@ -60,6 +60,8 @@ class transaction_Fragment : Fragment() {
             dialog.show()
 
         })
+
+
 
 
 

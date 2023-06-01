@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.wallet.Fragment.Add_Fragment
 import com.example.wallet.Fragment.HomeFragment
+import com.example.wallet.Fragment.chat_Fragment
 import com.example.wallet.Fragment.transaction_Fragment
 import com.example.wallet.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-
     lateinit var fragment: Add_Fragment
 
 
@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
         loadFragments(HomeFragment())
 
+        initView()
+    }
+
+    fun initView() {
         binding.bottomBar.setOnItemSelectedListener { item ->
             when (item) {
 
@@ -35,12 +39,16 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 2 -> {
+                    loadFragments(chat_Fragment())
+                }
+                3 -> {
                     loadFragments(transaction_Fragment())
                 }
 
 
             }
         }
+
     }
 
     private fun loadFragments(fragment: Fragment) {

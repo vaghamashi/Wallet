@@ -12,6 +12,12 @@
         android:title="ADD"/>
 
     <item
+        android:id="@+id/addcaht"
+        android:icon="@drawable/baseline_pie_chart_24"
+        android:title="chart"/>
+
+
+    <item
         android:id="@+id/list"
         android:icon="@drawable/baseline_menu_24"
         android:title="Transaction list"/>

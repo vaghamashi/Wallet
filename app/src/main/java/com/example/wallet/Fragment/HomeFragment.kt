@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.wallet.Adapter.TransAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.wallet.Adapter.MainTransAdapter
 import com.example.wallet.DBHelper.DBhelper
 import com.example.wallet.databinding.FragmentHomeBinding
 
@@ -18,26 +19,32 @@ class HomeFragment : Fragment() {
 
 
     lateinit var binding: FragmentHomeBinding
-    lateinit var adapter: TransAdapter
+    lateinit var adapter: MainTransAdapter
     lateinit var dbHelper: DBhelper
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        dbHelper = DBhelper(context)
+        updateDashboard()
 
-        updatedashboard()
+        adapter = MainTransAdapter()
+
+
+        adapter.addtruns(dbHelper.getTransaction())
+
+
+        binding.rcvlist.layoutManager = LinearLayoutManager(context)
+        binding.rcvlist.adapter = adapter
+
 
         return binding.root
     }
 
-    fun updatedashboard() {
+
+    fun updateDashboard() {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
@@ -57,9 +64,8 @@ class HomeFragment : Fragment() {
         }
 
         var totalbalance = (totalIncome - totalExpense).toString()
-
-//        binding.income.text = totalIncome.toString().toInt().toString()
-//        binding.expense.text = totalExpense.toString().toInt().toString()
+        binding.income.text = totalIncome.toString().toInt().toString()
+        binding.expense.text = totalExpense.toString().toInt().toString()
         binding.amt.text = totalbalance.toInt().toString()
 
 

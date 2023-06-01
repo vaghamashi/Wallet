@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_5sdp"
+    android:padding="@dimen/_13sdp">
+
+    <FrameLayout
+
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp">
+
+
+        <ImageView
+            android:id="@+id/round"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/shap_item" />
+
+        <ImageView
+            android:id="@+id/up_aro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/baseline_arrow_upward_24" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_7sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/Txt_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Txt_Amt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="end"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Txt_Cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="note"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>

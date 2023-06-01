@@ -11,17 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/_7sdp"
+        android:background="@drawable/item"
         app:cardCornerRadius="@dimen/_30sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/item"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#B1C7D8"
+                android:background="#CFDEE8"
                 android:orientation="vertical">
 
 
@@ -35,13 +37,13 @@
                         android:id="@+id/txt_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:layout_weight="1"
                         android:padding="@dimen/_14sdp"
                         android:text="Name"
-                        android:layout_margin="15dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_22sdp"
-                        android:textStyle="bold"
-                        android:layout_weight="1"/>
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -51,8 +53,8 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
                             android:layout_margin="15dp"
+                            android:gravity="end"
                             android:padding="@dimen/_14sdp"
                             android:src="@drawable/baseline_account_balance_wallet_24" />
                     </LinearLayout>
@@ -70,6 +72,33 @@
                     android:textSize="@dimen/_25sdp"
                     android:textStyle="bold" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:text="IS income"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/isincome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:padding="@dimen/_5sdp"
+                    android:text="IS income"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
